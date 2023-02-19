@@ -3,6 +3,8 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const path = require('path');
 const config = require('./_config');
+const dotenv= require('dotenv')
+dotenv.config()
 
 // Define routes
 let index = require('./routes/index');
@@ -12,7 +14,6 @@ let image = require('./routes/image');
 const app = express();
 
 // connecting the database
-<<<<<<< HEAD
 
 const MONGODB_URI = process.env.MONGODB_URI || config.mongoURI[app.settings.env]
 mongoose.connect(MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true  },(err)=>{
@@ -21,21 +22,6 @@ mongoose.connect(MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true 
     }else{
         console.log(`Connected to Database: ${MONGODB_URI}`)
     }
-=======
-async function connectdb() {
-    await mongoose
-      .connect(process.env.MONGODB_URI, {
-        useNewUrlParser: true,
-        useUnifiedTopology: true,
-      })
-      .then(() => {
-        console.log("Connected to MongoDB");
-      })
-      .catch((err) => {
-        console.log("Error connecting to MongoDB", err);
-      });
-  }
->>>>>>> b6ad319 (Create _config.js)
 });
 
 // test if the database has connected successfully
@@ -66,14 +52,12 @@ app.use('/image', image);
 const PORT = process.env.PORT || 5000;
 app.listen(PORT,() =>{
     console.log(`Server is listening at http://localhost:${PORT}`)
-<<<<<<< HEAD
 });
 
 
 module.exports = app;
-=======
-    await connectdb();
-});
 
-module.exports =app ;
->>>>>>> b6ad319 (Create _config.js)
+
+
+
+
