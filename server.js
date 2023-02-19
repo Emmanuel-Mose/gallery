@@ -20,8 +20,7 @@ async function connectdb() {
       .catch((err) => {
         console.log("Error connecting to MongoDB", err);
       });
-  }
-});
+  };
 
 // test if the database has connected successfully
 let db = mongoose.connection;
@@ -50,7 +49,7 @@ app.use('/image', image);
 
  
 const PORT = process.env.PORT || 5000;
-app.listen(PORT,() =>{
+app.listen(PORT,async() =>{
     console.log(`Server is listening at http://localhost:${PORT}`)
     await connectdb();
 });
