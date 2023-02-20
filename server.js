@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 const path = require('path');
 const config = require('./_config');
 const dotenv= require('dotenv')
-dotenv.config();
+dotenv.config()
 
 // Define routes
 let index = require('./routes/index');
@@ -14,7 +14,6 @@ let image = require('./routes/image');
 const app = express();
 
 // connecting the database
-
 async function connectdb() {
     await mongoose
       .connect(process.env.MONGODB_URI, {
@@ -61,4 +60,3 @@ app.listen(PORT,async() =>{
 });
 
 module.exports =app ;
-
