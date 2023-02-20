@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 const path = require('path');
 const config = require('./_config');
 const dotenv= require('dotenv')
-dotenv.config()
+dotenv.config();
 
 // Define routes
 let index = require('./routes/index');
